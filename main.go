@@ -1,19 +1,18 @@
 package main
 
-import "fmt"
-
-type ContaCorrente struct {
-	titular       string
-	numeroAgencia int
-	numeroConta   int
-	saldo         float64
-}
+import (
+	"fmt"
+	 "Banco\contas"
+	
+)
 
 func main() {
-	contaDoEverson := ContaCorrente{titular: "Everson Rubira", numeroAgencia: 149, numeroConta: 123456, saldo: 500.0}
+	contaDoEverson := contas.contaCorrente{Titular: "Everson Rubira", Saldo: 500}
+	contaDaClaudia := contas.contaCorrente{Titular: "Claudia Teixeira", Saldo: 400}
 
-	contaDaClaudia := ContaCorrente{"Claudia Teixeira", 141, 234567, 600.0}
+	status := contaDoEverson.Transferir(200, &contaDaClaudia)
 
+	fmt.Println(status)
 	fmt.Println(contaDoEverson)
 	fmt.Println(contaDaClaudia)
 
